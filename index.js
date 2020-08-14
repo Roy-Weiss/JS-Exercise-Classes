@@ -234,9 +234,27 @@ console.log(Sam.sprintChallenge("Python"))
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+    constructor(attr) {
+        super(attr)
+        this.gradClassName = attr.gradClassName
+        this.favInstructor = attr.favInstructor
+    }
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`
+    }
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
+    }
 }
+let Timmy = new ProjectManager({
+    gradClassName: "wep25",
+    favInstructor: "Sean"
+})
+
+console.log(Timmy.standUp("Timmy"))
+console.log(Timmy.debugsCode("Timmy", "Python"))
+
 
 /*
   STRETCH PROBLEM (no tests!)
